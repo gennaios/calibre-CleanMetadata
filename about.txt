@@ -1,0 +1,37 @@
+Clean Metadata
+===========================
+
+Created by WS64
+
+Requires calibre >= 2.85.1
+
+Cleanup German umlauts in titles:
+title: "Boser Ueberfall und Duell der Daemonen"
+=>
+"Boser Überfall und Duell der Dämonen" (notice that "Boser" will not get changed to "Böser" (sorry, no idea how to recognize this!) and also "Duell" will not get changed to "Düll" (this works as expected). I can't guarantee that there won't be any false changes!)
+
+Cleanup titles:
+title: "This is a book title (German Edition)" / "This is a book title. A novel" / "This_is_a_book_title" (and a few more, words like "Thriller" or "Roman" and so on)
+=>
+title: "This is a book title"
+
+Get series info from title:
+title: "Harry Potter 3: The Prisoner of Azkaban"
+=>
+title: "The Prisoner of Azkaban"
+series: "Harry Potter"
+series_index: 3
+
+Cleanup authors:
+authors: "Lastname, A B.C. firstname; Anotherlastname, Anotherfirstname"
+=>
+authors 1: "A. B. C. Firstname Lastname"
+authors 2: "Anotherfirstname Anotherlastname"
+
+Swap author and title if title matches an existing author:
+title: "Stephen King", author: "Cujo"
+=>
+title: "Cujo", author: "Stephen King" *if* there is already one other book in your library with author "Stephen King"
+
+Find duplicate author candidates:
+Will try to find books by authors like "D. Ray Koontz" or "Dean Koontz" if you have marked a book by "Dean R. Koontz"
